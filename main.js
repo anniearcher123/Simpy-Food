@@ -14,16 +14,28 @@
 
 //Event listener for search button
 //Select button
-let searchButton= document.getElementById("search-btn");
-searchButton.addEventListener("click", resultList);
-
+window.onload=function() {
+    const searchButton = document.getElementById('search-btn');
+    searchButton.addEventListener("click", resultList);
+}
 //Take input from search and look up recipe by ingredient
 function resultList(){
-    let result = document.getElementById('ingredient-search').ariaValueMax.trim()
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?
-    ingredients=${result}&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe`)
+    let result = document.getElementById('ingredient-search').value.trim()
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
+        ingredientList(data)
     })
+}
+
+//Function that will use result of search and pull out the ingredients
+function ingredientList(ingredient){
+    document.getElementById('search-result').innerHTML =`
+    <div>
+        ${ingredient.map(function(name) {
+            return `<div>${name.missedIngredients}</div>`
+        })}
+    </div
+    `
 }
