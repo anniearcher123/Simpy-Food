@@ -29,13 +29,13 @@ function resultList(){
     })
 }
 
-//Function that will use result of search and pull out the ingredients
+//Function that will use result of search, loop through array and pull out information
 function ingredientList(ingredient){
     document.getElementById('search-result').innerHTML =`
-    <div>
-        ${ingredient.map(function(name) {
-            return `<div>${name.missedIngredients}</div>`
-        })}
+    <div>    
+    ${ingredient.map(function(food) {
+            return `<div>${food.title} - ${food.missedIngredients[0].name}</div>`
+        }).join('')}
     </div
     `
 }
