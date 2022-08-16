@@ -33,11 +33,51 @@ function resultList(){
  }
 //global variable = line 45 .map function
 
+
 // function combinedIngredients(data){
 //     //loop thru arrays then concat 
 //     let allIngredients = data.missedIngredients.concat(data.usedIngredients)
 //     return allIngredients
 // }
+
+
+// Filter recipes on homescreen
+filterObjects("all");
+
+function filterObjects(a){
+    x = document.getElementsByClassName("card");
+    if(a == "all") a = "";
+    for (i = 0; i < x.length; i++) {
+        removeClass(x[i], "show");
+        if(x[i].className.indexOf(a) > -1) addClass(x[i], "show")
+    }
+}
+
+function addClass(b, c){
+    let i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++){
+        if (arr1.indexOf(arr2[i]) == -1){
+            element.className += " " + arr2[i];
+        }
+    }
+}
+
+function removeClass(b, c){
+    let i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++){
+        while (arr1.indexOf(arr2[i]) > -1){
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+    }
+    element.className = arr1.join(" ");
+}
+// Filter recipes on homescreen
+
+
 //Function that will use result of search, loop through array and pull out information
 function ingredientList(ingredient){
     //console.log(ingredient)
@@ -66,34 +106,3 @@ function ingredientList(ingredient){
     }).join('')}
     `
 }
-
-
-
-
-// function resultList(){
-//     let result = document.getElementById('ingredient-search').value.trim()
-//     fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe`)
-//     .then(response => response.json())
-//     //.then(data => obj = data)
-//      .then(data => {
-//          console.log(data)
-//          ingredientList(data)
-// //         let html = ""
-// //         if(data){
-// //             data.forEach(food => {
-// //                 html += `
-// //                 <div class = "meal-item">
-// //                     <div class = "meal-img">
-// //                         <img src = "${food.image}" alt = "food">
-// //                     </div>
-// //                     <div class = "meal-name">
-// //                         <h3>${food.title}</h3>
-// //                         <a href = "#" class = "recipe-btn">Get Nutrition</a>
-// //                     </div>
-// //                 </div>
-// //                 `
-// //             });
-// //         }
-// //         recipes.innerHTML = html
-//      })
-//  }
