@@ -9,7 +9,7 @@
 //     const data = await response.json()
 //     console.log(data)    
 // }
-
+const recipes = document.getElementById('card-container')
 //start()
 
 //Event listener for search button
@@ -24,10 +24,21 @@ function resultList(){
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
-        ingredientList(data)
-    })
-}
+         console.log(data)
+         //combinedIngredients(data)
+         //let allIngredients = data.missedIngredients.concat(data.usedIngredients)
+         ingredientList(data)
+         //function combine ingredients
+     })
+ }
+//global variable = line 45 .map function
+
+
+// function combinedIngredients(data){
+//     //loop thru arrays then concat 
+//     let allIngredients = data.missedIngredients.concat(data.usedIngredients)
+//     return allIngredients
+// }
 
 
 // Filter recipes on homescreen
@@ -66,14 +77,32 @@ function removeClass(b, c){
 }
 // Filter recipes on homescreen
 
+
 //Function that will use result of search, loop through array and pull out information
 function ingredientList(ingredient){
-    document.getElementById('search-result').innerHTML =`
-    <div>    
+    //console.log(ingredient)
+    // for(let i = 0; i < ingredient.missedIngredients.length; i++){
+        
+    // }
+    document.querySelector('.card-container').innerHTML =`
     ${ingredient.map(function(food) {
-            return `<div>${food.title} - ${food.missedIngredients[0].name}</div>`
-        }).join('')}
-    </div
+        
+        let html = ""
+        food.missedIngredients.forEach(function(missed){
+            html += `<li>${missed.original}</li>`
+        })
+        food.usedIngredients.forEach(function(used){
+            html += `<li>${used.original}</li>`
+        })
+        console.log(html)
+        return `<div class="card">
+        <div class="card-body">
+            <img src="${food.image}" alt="" class="card-image"/>
+            <h2 class="card-title">${food.title}</h2>
+            <ol>${html}</ol>
+        </div>
+        <button class="card-button">View recipe</button>
+    </div>`
+    }).join('')}
     `
 }
-
