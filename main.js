@@ -1,7 +1,12 @@
 //Recipe API homepage https://spoonacular.com/food-api
-//API key 7be06ed1dc724fc38a11ef37e6e88fbe
+//Recipe API key 7be06ed1dc724fc38a11ef37e6e88fbe
 //Format add => &apiKey=7be06ed1dc724fc38a11ef37e6e88fbe at the end of url
 // Example: https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe
+
+//Nutrition API homepage https://www.edamam.com/
+//Nutrition API ID a9218d64
+//API key cc615f58e7a322c342185472560c8883
+//URL example https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=1%20cup%20of%20milk%2C%201%20tsp%20of%20vanilla%2C%204%20eggs
 
 const recipes = document.getElementById('card-container')
 //start()
@@ -25,32 +30,46 @@ function resultList(){
 
 //Function that will use result of search, loop through array and pull out information
 function ingredientList(ingredient){
-    //console.log(ingredient)
-    // for(let i = 0; i < ingredient.missedIngredients.length; i++){
-        
-    // }
     document.querySelector('.card-container').innerHTML =`
     ${ingredient.map(function(food) {
         
         let html = ""
         food.missedIngredients.forEach(function(missed){
-            html += `<li>${missed.original}</li>`
+            html += `<li class="ingredients">${missed.original}</li>`
         })
         food.usedIngredients.forEach(function(used){
-            html += `<li>${used.original}</li>`
+            html += `<li class="ingredients">${used.original}</li>`
         })
-        console.log(html)
+        //console.log(html)
         return `<div class="card">
         <div class="card-body">
             <img src="${food.image}" alt="" class="card-image"/>
             <h2 class="card-title">${food.title}</h2>
-            <ol>${html}</ol>
+            <ol class="ingredients-list">${html}</ol>
         </div>
         <button class="card-button">View recipe</button>
     </div>`
+    
     }).join('')}
     `
+    nutrition(ingredient);
 }
+
+function nutrition(ingredient){
+    
+    //select li by class, take innerText and put it into nutrition api
+    //find image response
+    //cant use html shortcut
+    let ingredients = document.querySelector(".ingredients").innerText
+    console.log(ingredients)
+    fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredients}`)
+    .then(response => response.json())
+    .then(data => {
+         console.log(data)
+        
+    })
+}
+
 
 // Filter recipes on homescreen
 filterObjects("all");
