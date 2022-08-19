@@ -11,12 +11,6 @@ bootstrap.min.css"
 rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/
 HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <script src="main.js"></script>
-<!-- <style>
-    body {background-color: goldenrod;}
-    h1 {text-align: center; color: cornsilk;
-    text-shadow: 1px 2px 2px #CE5937;}
-    h3 {text-align: center;}
-</style> -->
 </head>
 <body>
         <nav>
@@ -38,9 +32,35 @@ HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <button type="submit" id="search-btn">Search</button>
     </div>
 
+<!-- Filter Buttons for Recipes -->
+    <div id="buttons">
+          <button class="btn" onclick="filterObjects('all')">Show All</button>
+          <button class="btn" onclick="filterObjects('beef')">Beef</button>
+          <button class="btn" onclick="filterObjects('pork')">Pork</button>
+          <button class="btn" onclick="filterObjects('chicken')">Chicken</button>
+          <button class="btn" onclick="filterObjects('lamb')">Lamb</button>
+          <button class="btn" onclick="filterObjects('seafood')">Seafood</button>
+          <button class="btn" onclick="filterObjects('vegetarian')">Vegetarian</button>
+    </div>
+<!-- Filter Buttons for Recipes -->
+
 </div>
+
+<div class="search-results">
+    <h3>Search Results</h3>
+    <div id="search-result">
+
+        
+    </div>
+    <!-- <p>These words are here simply as a placeholder. <br>They have 
+        absolutely no importance and will be removed/replaced at a later 
+        date. <br>They may be used as the guinea pig for visual testing 
+        of formatting ideas.</p> -->
+
 </div>
+
 <div class="card-container">
+ <section class="card">
     <div class="card">
         <div class="card-body">
             <img src="images/arrabiata.jpeg" alt="" class="card-image">
@@ -63,10 +83,13 @@ HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
             <h2 class="card-title">Arrabiata</h2>
             <p class="card-description">A spicy sauce for pasta made from garlic, tomatoes, and dried red chili peppers cooked in olive oil.</p>
         </div>
-        <button class="card-button">View recipe</button>
+        <button class="card-button">View recipe</button></div>
+    </section>
 </div>
+
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 <footer>Footer</footer>
 </html>
