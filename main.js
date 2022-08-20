@@ -24,56 +24,59 @@ function resultList(){
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe`)
     .then(response => response.json())
     .then(data => {
-         console.log(data)
-         ingredientList(data)
+        //  console.log(data)
+         return ingredientList(data)
+     })
+     .then(async ingredientsArray => {
+        await Promise.all(ingredientsArray.map(ingredient => {
+            return nutrition(ingredient);
+        }))
+        .then(calories => {
+            const cardLists = document.querySelectorAll('.ingredients-list');
+            cardLists.forEach((card, i) => {
+                const calText = `<li class="ingredients">${calories[i]}</li>`
+                card.innerHTML += calText;
+            })
+        });
      })
  }
 
 //Function that will use result of search, loop through array and pull out information
 function ingredientList(ingredient){
+    let ingredients = [];
     document.querySelector('.card-container').innerHTML =`
     ${ingredient.map(function(food) {
         
         let html = ""
-        let htmlTwo = ""
+        let ingredientsInCard = [];
         food.missedIngredients.forEach(function(missed){
             html += `<li class="ingredients">${missed.original}</li>`
-            htmlTwo += missed.original
+            ingredientsInCard.push(missed.original);
         })
         food.usedIngredients.forEach(function(used){
             html += `<li class="ingredients">${used.original}</li>`
-            htmlTwo += used.original
+            ingredientsInCard.push(used.original);
         })
-        
-        //html += nutrition(htmlTwo)
-        console.log(htmlTwo)
+    
+        ingredients.push(ingredientsInCard);
         return `<div class="card">
         <div class="card-body">
             <img src="${food.image}" alt="" class="card-image"/>
             <h2 class="card-title">${food.title}</h2>
             <ol class="ingredients-list">${html}</ol>
-            <ol class="calories">${nutrition(htmlTwo)}</ol>
         </div>
         <button class="card-button">View recipe</button>
     </div>`
     
     }).join('')}
     `
-    //nutrition(htmlTwo);
+    return ingredients;
 }
 
-function nutrition(ingredient){
-
-    let nutrition =""
-    //let ingredients = document.querySelector(".ingredients").innerText
-    //console.log(ingredients)
-    fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`)
-    .then(response => response.json())
-    .then(data => {
-         nutrition = data
-         console.log(nutrition.calories)
-         return nutrition.calories
-    })
+async function nutrition(ingredient){
+    const response = await fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`);
+    const data = await response.json();
+    return data.calories;
 }
 
 
@@ -112,6 +115,3 @@ function removeClass(b, c){
     element.className = arr1.join(" ");
 }
 // Filter recipes on homescreen
-
-
-
