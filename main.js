@@ -34,39 +34,44 @@ function ingredientList(ingredient){
     ${ingredient.map(function(food) {
         
         let html = ""
+        let htmlTwo = ""
         food.missedIngredients.forEach(function(missed){
             html += `<li class="ingredients">${missed.original}</li>`
+            htmlTwo += missed.original
         })
         food.usedIngredients.forEach(function(used){
             html += `<li class="ingredients">${used.original}</li>`
+            htmlTwo += used.original
         })
-        //console.log(html)
+        
+        //html += nutrition(htmlTwo)
+        console.log(htmlTwo)
         return `<div class="card">
         <div class="card-body">
             <img src="${food.image}" alt="" class="card-image"/>
             <h2 class="card-title">${food.title}</h2>
             <ol class="ingredients-list">${html}</ol>
+            <ol class="calories">${nutrition(htmlTwo)}</ol>
         </div>
         <button class="card-button">View recipe</button>
     </div>`
     
     }).join('')}
     `
-    nutrition(ingredient);
+    //nutrition(htmlTwo);
 }
 
 function nutrition(ingredient){
-    
-    //select li by class, take innerText and put it into nutrition api
-    //find image response
-    //cant use html shortcut
-    let ingredients = document.querySelector(".ingredients").innerText
-    console.log(ingredients)
-    fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredients}`)
+
+    let nutrition =""
+    //let ingredients = document.querySelector(".ingredients").innerText
+    //console.log(ingredients)
+    fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`)
     .then(response => response.json())
     .then(data => {
-         console.log(data)
-        
+         nutrition = data
+         console.log(nutrition.calories)
+         return nutrition.calories
     })
 }
 
