@@ -14,6 +14,7 @@ const recipes = document.getElementById('card-container')
 //Event listener for search button
 //Select button
 window.onload=function() {
+
     const searchButton = document.getElementById('search-btn');
     searchButton.addEventListener("click", resultList);
 }
