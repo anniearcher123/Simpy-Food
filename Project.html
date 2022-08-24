@@ -11,27 +11,43 @@ bootstrap.min.css"
 rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/
 HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <script src="main.js"></script>
+<script src="https://kit.fontawesome.com/75ab6bd25d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-        <nav>
-           <div class="cuisines">
-            <a href="">Cuisine 1</a>
-            <a href="">Cuisine 2</a>
-           </div>
-           <h1>Front End Project</h1>
-           <div class="cuisines-two">
-            <a href="">Cuisine 3</a>
-            <a href="">Cuisine 4</a>
-           </div>
-        </nav>
+    <header>
+        <h1 class="title">Front End Project</h1>
+        <div class="filter-pages"></div>
+        <div class="social-media-links">
+            <nav class="social-media">
+                <ul class="social-media-list">
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-twitter"></i></li>
+                    <li><i class="fa-brands fa-square-facebook"></i></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Cuisine Dropdown -->
+        <div class="dropdown">
+            <button onclick="cuisineDropdown()" class="dropbtn">Cuisines</button>
+            <div id="dropList" class="dropdown-list">
+                <a href="#cuisine1">Cuisine 1</a>
+                <a href="#cuisine2">Cuisine 2</a>
+                <a href="#cuisine3">Cuisine 3</a>
+                <a href="#cuisine4">Cuisine 4</a>
+            </div>
+        </div>
+        <!-- Cuisine Dropdown -->
+    </header>
+
 <div class="search-container">
     <div class="ingredient-search">
-        <input type="text" id="ingredient-search" placeholder="Ingredients">
-        <button type="submit" id="search-btn">Search</button>
+        <input type="text" id="ingredient-search">
+        <!-- <ion-icon class="search-icon" name="search-outline"></ion-icon> -->
+        <button type="submit" id="search-btn"><i class="fa-solid fa-magnifying-glass" id="search-icon"></i></button>
     </div>
 
 <!-- Filter Buttons for Recipes -->
-    <div id="buttons">
+    <!-- <div id="buttons">
           <button class="btn" onclick="filterObjects('all')">Show All</button>
           <button class="btn" onclick="filterObjects('beef')">Beef</button>
           <button class="btn" onclick="filterObjects('pork')">Pork</button>
@@ -39,12 +55,12 @@ HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
           <button class="btn" onclick="filterObjects('lamb')">Lamb</button>
           <button class="btn" onclick="filterObjects('seafood')">Seafood</button>
           <button class="btn" onclick="filterObjects('vegetarian')">Vegetarian</button>
-    </div>
+    </div> -->
 <!-- Filter Buttons for Recipes -->
-    <button class="modal-btn">Modal</button>
+    <button id="modal-btn">Modal</button>
 <!-- Modal -->
-    <div class="modal-bg">
-        <div class="modal">
+    <div class="modal">
+        <div class="modal-bg">
             <h2>Testing</h2>
             <label for="name">Name: </label>
             <input type="text" name="name">
@@ -58,35 +74,22 @@ HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 <!-- <div class="search-results">
     <h3>Search Results</h3>
+=======
+</div>
+
+<div class="search-results">
+>>>>>>> main
     <div id="search-result">
 
-<div class="card-container">
- <section class="card">
-    <div class="card">
-        <div class="card-body">
-            <img src="images/arrabiata.jpeg" alt="" class="card-image">
-            <h2 class="card-title">Arrabiata</h2>
-            <p class="card-description">A spicy sauce for pasta made from garlic, tomatoes, and dried red chili peppers cooked in olive oil.</p>
-        </div>
-        <button class="card-button">View recipe</button>
+        
     </div>
-    <div class="card">
-        <div class="card-body">
-            <img src="images/arrabiata.jpeg" alt="" class="card-image">
-            <h2 class="card-title">Arrabiata</h2>
-            <p class="card-description">A spicy sauce for pasta made from garlic, tomatoes, and dried red chili peppers cooked in olive oil.</p>
-        </div>
-        <button class="card-button">View recipe</button>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <img src="images/arrabiata.jpeg" alt="" class="card-image">
-            <h2 class="card-title">Arrabiata</h2>
-            <p class="card-description">A spicy sauce for pasta made from garlic, tomatoes, and dried red chili peppers cooked in olive oil.</p>
-        </div>
-        <button class="card-button">View recipe</button></div>
-    </section>
+
 </div>
+
+<div class="card-container">
+
+</div>
+
 </body>
-<footer>Footer</footer>
+<footer></footer>
 </html>
