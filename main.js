@@ -132,6 +132,10 @@ function removeClass(b, c){
 }
 
 
+
+// Filter recipes on homescreen
+
+
 //Function that will use result of search, loop through array and pull out information
 function ingredientList(ingredient){
     document.getElementById('search-result').innerHTML =`
@@ -171,4 +175,9 @@ modalBtn.addEventListener('click',function(){
 modalClose.addEventListener('click', function(){
     modalBg.classList.remove('bg-active');
 })
+
 // Filter recipes on homescreen
+
+
+// Filter recipes on homescreen
+
