@@ -32,9 +32,9 @@ function resultList(){
             return nutrition(ingredient);
         }))
         .then(calories => {
-            const cardLists = document.querySelectorAll('.ingredients-list');
+            const cardLists = document.querySelectorAll('.card-body');
             cardLists.forEach((card, i) => {
-                const calText = `<li class="ingredients">${calories[i]}</li>`
+                const calText = `<div class="nutrition">${calories[i]}</div>`
                 card.innerHTML += calText;
             })
         });
@@ -71,20 +71,29 @@ function ingredientList(ingredient){
     }).join('')}
     `
     return ingredients;
+    console.log(ingredients)
 }
 
 async function nutrition(ingredient){
+    let nutrients = ""
+    let card = []
+    
     const response = await fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`);
     const data = await response.json();
     console.log(data)
     //return data.calories
+    //loop through total nutrients
     for(let nutrient in data.totalNutrients) {
-        return `${data.totalNutrients[nutrient].label} - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}`
+        nutrients += `<li>${data.totalNutrients[nutrient].label} - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}</li>`
     }
-    
+        
+        return `
+            <ol class="nutrition-info">
+                ${nutrients}
+            </ol>
+        `
+    }
 
-    ;
-}
 
 
 // Filter recipes on homescreen
