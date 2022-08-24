@@ -11,27 +11,28 @@
 }
 
 h1 {
-    color: #f6e0d3;
+    color: #d7d9cf;
     margin: 10px;
 }
 
 header {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 16px;
     grid-area: header;
     display: grid;
-    line-height: 70px;
+    line-height: 30px;
     justify-content: center;
     background-color: #212529;
 }
 
 .social-media-list {
-    list-style: none;
-    margin: 10px;
-    justify-self: end;
+    display: flex;
+    justify-content: center;
 }
 
 .social-media-list li {
     display: inline;
-    color: #f6e0d3;
+    color: #a01734;
     padding: 20px;
 }
 
@@ -63,7 +64,9 @@ body {
 }
 
 input {
+    grid-area: search-container;
     position: relative;
+    font-family: 'Karla', sans-serif;
     width: 500px;
     height: 8vh;
     border: none;
@@ -109,14 +112,13 @@ input {
     overflow: hidden;
     box-shadow: 2px, 20px black;
     border-radius: var(--radius);
-    background-color: #551619;
+    background-color: #d7d9cf;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     transition: transform 200ms ease-in;
-    border: 1px solid #551619;
-    color: #f6e0d3;
+    color: #3b0002;
     padding: 5px;
 }
 
@@ -129,10 +131,13 @@ img {
 
 .card-title {
     padding: 1rem;
+    font-family: 'Abril Fatface', cursive;
+    color:#a01734;
 }
 
 .card-description {
     padding: 0 1rem;
+    font-family: 'Karla', sans-serif;
 }
 
 ol {
@@ -142,13 +147,14 @@ ol {
 
 .card-button {
     padding: 1rem;
+    font-family: 'Karla', sans-serif;
     font-family: inherit;
     font-weight: bold;
     font-size: 1rem;
     margin: 1rem;
-    border: 2px solid #f6e0d3;
+    border: 2px solid ;
     background: transparent;
-    color: #f6e0d3;
+    color: #a01734;
     border-radius: var(--radius);
     transition: background 200ms ease-in, color 200ms ease-in;
 }
@@ -159,16 +165,17 @@ ol {
 }
 
 .card-button:hover {
-    background: #f6e0d3;
-    color: #480100;
+    background: #a01734;
+    color: #d7d9cf;
 }
 
 footer {
     grid-area: footer;
 }
 
-@media only screen and (max-width: 550px) {
+@media screen and (max-width: 550px) {
     body {
+        width: 100vw;
         grid-template-columns: 1fr;
         grid-template-rows: 0.4fr 2.2fr 1.2fr 1fr;
         grid-template-areas:
@@ -178,8 +185,6 @@ footer {
         "footer";
     }
 
-
-}
 .modal-bg{
     position: fixed;
     width: 100%;
@@ -277,3 +282,41 @@ bg-active{
   .dropdown-list a:hover {background-color: #ddd}
 
   .show {display:block;}
+  
+    .search-container {
+        grid-area: search-container;
+        background-image: url(images/search-bar-image2.jpg);
+        height: 60vh;
+        width: 100%;
+        object-fit: none;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+input {
+    grid-area: search-container;
+    position: relative;
+    width: 350px;
+    height: 7vh;
+    border: none;
+    padding: 10px 25px;
+    font-size: 25px;
+    outline: solid 1px #2e4711;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+}
+
+#search-icon {
+    position: absolute;
+    color: #2e4711;
+    font-size: 2rem;
+    cursor: pointer;
+    top: 253px;
+    right: 50px;
+}
+
+}
