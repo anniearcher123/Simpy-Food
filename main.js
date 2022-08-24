@@ -137,15 +137,15 @@ function removeClass(b, c){
 
 
 //Function that will use result of search, loop through array and pull out information
-function ingredientList(ingredient){
-    document.getElementById('search-result').innerHTML =`
-    <div>    
-    ${ingredient.map(function(food) {
-            return `<div>${food.title} - ${food.missedIngredients[0].name}</div>`
-        }).join('')}
-    </div
-    `
-}
+// function ingredientList(ingredient){
+//     document.getElementById('search-result').innerHTML =`
+//     <div>    
+//     ${ingredient.map(function(food) {
+//             return `<div>${food.title} - ${food.missedIngredients[0].name}</div>`
+//         }).join('')}
+//     </div
+//     `
+// }
 
 function cuisineDropdown() {
     document.getElementById("dropList").classList.toggle("show");
