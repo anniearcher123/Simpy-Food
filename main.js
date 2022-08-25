@@ -34,7 +34,7 @@ function resultList(){
         .then(calories => {
             const cardLists = document.querySelectorAll('.card-body');
             cardLists.forEach((card, i) => {
-                const calText = `<div class="nutrition">${calories[i]}</div>`
+                const calText = `<div class="nutrition" id= "${i}" style="display:none">${calories[i]}</div>`
                 card.innerHTML += calText;
             })
         });
@@ -65,7 +65,8 @@ function ingredientList(ingredient){
             <h2 class="card-title">${food.title}</h2>
             <ol class="ingredients-list">${html}</ol>
         </div>
-        <button class="card-button">View recipe</button>
+        <button onclick="show()" class="card-button">Nutrition Info</button>
+        <button onclick="hide()" class="card-button">Hide</button>
     </div>`
     
     }).join('')}
@@ -88,13 +89,29 @@ async function nutrition(ingredient){
     }
         
         return `
+        <h3>Nutrition Info</h3>
             <ol class="nutrition-info">
                 ${nutrients}
             </ol>
         `
     }
 
+// const display = document.getElem('card-button')
+// display.addEventListener("click", show)
 
+
+
+async function show(){
+    
+    //this.parentElement.style.display = 'block';
+    $(".nutrition").show()
+}
+
+async function hide(){
+    
+    //this.parentElement.style.display = 'block';
+    $(".nutrition").hide()
+}
 
 // Filter recipes on homescreen
 filterObjects("all");
@@ -164,17 +181,17 @@ window.onclick = function(event) {
     }
 }
 
-let modalBtn = document.querySelector('.modal-btn')
-let modalBg = document.querySelector('.modal-bg')
-let modalClose = document.querySelector('.modal-close')
+// let modalBtn = document.querySelector('.modal-btn')
+// let modalBg = document.querySelector('.modal-bg')
+// let modalClose = document.querySelector('.modal-close')
 
-modalBtn.addEventListener('click',function(){
-    modalBg.classList.add('bg-active');
-})
+// modalBtn.addEventListener('click',function(){
+//     modalBg.classList.add('bg-active');
+// })
 
-modalClose.addEventListener('click', function(){
-    modalBg.classList.remove('bg-active');
-})
+// modalClose.addEventListener('click', function(){
+//     modalBg.classList.remove('bg-active');
+// })
 
 // Filter recipes on homescreen
 

@@ -185,7 +185,7 @@ footer {
         "footer";
     }
 
-.modal-bg{
+/* .modal-bg{
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -230,7 +230,7 @@ bg-active{
     right: 10px;
     font-weight: bold;
     cursor: pointer;
-}
+} */
 
 .dropbtn {
     background-color: #29b957;
