@@ -34,7 +34,7 @@ function resultList(){
         .then(calories => {
             const cardLists = document.querySelectorAll('.card-body');
             cardLists.forEach((card, i) => {
-                const calText = `<div class="nutrition" id= "${i}" style="display:none">${calories[i]}</div>`
+                const calText = `<div class="nutrition" id= "nutrition${i}" style="display:none">${calories[i]}</div>`
                 card.innerHTML += calText;
             })
         });
@@ -59,14 +59,16 @@ function ingredientList(ingredient){
         })
     
         ingredients.push(ingredientsInCard);
-        return `<div class="card">
+        return `
+    <div class="card">
         <div class="card-body">
             <img src="${food.image}" alt="" class="card-image"/>
             <h2 class="card-title">${food.title}</h2>
-            <ol class="ingredients-list">${html}</ol>
+            <h3><ul>Ingredients:</ul></h3>
+            <ul class="ingredients-list">${html}</ul>
         </div>
-        <button onclick="show()" class="card-button">Nutrition Info</button>
-        <button onclick="hide()" class="card-button">Hide</button>
+        <button onclick="show(this)" class="card-button">Nutrition Info</button>
+        <button onclick="hide(this)" class="card-button">Hide</button>
     </div>`
     
     }).join('')}
@@ -85,32 +87,27 @@ async function nutrition(ingredient){
     //return data.calories
     //loop through total nutrients
     for(let nutrient in data.totalNutrients) {
-        nutrients += `<li>${data.totalNutrients[nutrient].label} - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}</li>`
+        nutrients += `<li><strong>${data.totalNutrients[nutrient].label}</strong> - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}</li>`
     }
         
         return `
-        <h3>Nutrition Info</h3>
+        <h3><u><strong>Nutrition Info:</strong></u></h3>
             <ol class="nutrition-info">
                 ${nutrients}
             </ol>
         `
-    }
-
-// const display = document.getElem('card-button')
-// display.addEventListener("click", show)
-
-
-
-async function show(){
-    
-    //this.parentElement.style.display = 'block';
-    $(".nutrition").show()
 }
 
-async function hide(){
-    
+async function show(button){
+    $(button).siblings(".card-body").find(".nutrition").show()
     //this.parentElement.style.display = 'block';
-    $(".nutrition").hide()
+    // $(".nutrition").show()
+}
+
+async function hide(button){
+    $(button).siblings(".card-body").find(".nutrition").hide()
+    //this.parentElement.style.display = 'block';
+    //$(".nutrition").hide()
 }
 
 // Filter recipes on homescreen
