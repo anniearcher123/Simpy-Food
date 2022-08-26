@@ -1,0 +1,161 @@
+:root {
+    --radius: 0.2rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #d7d9cf;
+    margin: 10px;
+}
+
+header {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 16px;
+    grid-area: header;
+    display: grid;
+    line-height: 30px;
+    justify-content: center;
+    background-color: #212529;
+}
+
+.social-media-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media-list li {
+    display: inline;
+    color: #a01734;
+    padding: 20px;
+    align-items: center;
+}
+
+body {
+    background-color: #212529;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1.2fr .8fr;
+    grid-template-areas:
+    "header header header"
+    "top-ten top-ten top-ten"
+    "card-container card-container card-container"
+    "footer footer footer";
+}
+
+.top-ten-results {
+    grid-area: top-ten;
+    background-image: url(images/search-bar-image2.jpg);
+    height: 68vh;
+    width: 100%;
+    object-fit: none;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+.top-ten-results > h1 {
+    font-family: 'Abril Fatface', cursive;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 8px;
+    color: #a01734;
+}
+
+.card-container {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+    grid-gap: 2rem;
+    justify-content: center;
+    grid-area: card-container;
+}
+
+.card {
+    overflow: hidden;
+    box-shadow: 2px, 20px black;
+    border-radius: var(--radius);
+    background-color: #d7d9cf;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+    color: #3b0002;
+    padding: 5px;
+}
+
+img {
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.card-title {
+    padding: 1rem;
+    font-family: 'Abril Fatface', cursive;
+    color:#a01734;
+}
+
+.card-description {
+    padding: 0 1rem;
+    font-family: 'Karla', sans-serif;
+}
+
+ol {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.card-button {
+    padding: 1rem;
+    font-family: 'Karla', sans-serif;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid ;
+    background: transparent;
+    color: #a01734;
+    border-radius: var(--radius);
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+
+.card:hover {
+    transform: scale(1.02);
+
+}
+
+.card-button:hover {
+    background: #a01734;
+    color: #d7d9cf;
+}
+
+footer {
+    grid-area: footer;
+}
+
+@media screen and (max-width: 550px) {
+body {
+    width: 100vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1fr;
+    grid-template-areas:
+    "header"
+    "s"
+    "card-container"
+    "footer";
+}
+}
