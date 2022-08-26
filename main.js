@@ -7,7 +7,7 @@
 //Nutrition API ID a9218d64
 //API key cc615f58e7a322c342185472560c8883
 //URL example https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=1%20cup%20of%20milk%2C%201%20tsp%20of%20vanilla%2C%204%20eggs
-
+//last try
 const recipes = document.getElementById('card-container')
 //start()
 
@@ -32,9 +32,9 @@ function resultList(){
             return nutrition(ingredient);
         }))
         .then(calories => {
-            const cardLists = document.querySelectorAll('.ingredients-list');
+            const cardLists = document.querySelectorAll('.card-body');
             cardLists.forEach((card, i) => {
-                const calText = `<li class="ingredients">${calories[i]}</li>`
+                const calText = `<div class="nutrition" id= "${i}" style="display:none">${calories[i]}</div>`
                 card.innerHTML += calText;
             })
         });
@@ -65,27 +65,53 @@ function ingredientList(ingredient){
             <h2 class="card-title">${food.title}</h2>
             <ol class="ingredients-list">${html}</ol>
         </div>
-        <button class="card-button">View recipe</button>
+        <button onclick="show()" class="card-button">Nutrition Info</button>
+        <button onclick="hide()" class="card-button">Hide</button>
     </div>`
     
     }).join('')}
     `
     return ingredients;
+    console.log(ingredients)
 }
 
 async function nutrition(ingredient){
+    let nutrients = ""
+    let card = []
+    
     const response = await fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`);
     const data = await response.json();
     console.log(data)
     //return data.calories
+    //loop through total nutrients
     for(let nutrient in data.totalNutrients) {
-        return `${data.totalNutrients[nutrient].label} - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}`
+        nutrients += `<li>${data.totalNutrients[nutrient].label} - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}</li>`
     }
-    
+        
+        return `
+        <h3>Nutrition Info</h3>
+            <ol class="nutrition-info">
+                ${nutrients}
+            </ol>
+        `
+    }
 
-    ;
+// const display = document.getElem('card-button')
+// display.addEventListener("click", show)
+
+
+
+async function show(){
+    
+    //this.parentElement.style.display = 'block';
+    $(".nutrition").show()
 }
 
+async function hide(){
+    
+    //this.parentElement.style.display = 'block';
+    $(".nutrition").hide()
+}
 
 // Filter recipes on homescreen
 filterObjects("all");
@@ -121,4 +147,54 @@ function removeClass(b, c){
     }
     element.className = arr1.join(" ");
 }
+
+
+
 // Filter recipes on homescreen
+
+
+//Function that will use result of search, loop through array and pull out information
+// function ingredientList(ingredient){
+//     document.getElementById('search-result').innerHTML =`
+//     <div>    
+//     ${ingredient.map(function(food) {
+//             return `<div>${food.title} - ${food.missedIngredients[0].name}</div>`
+//         }).join('')}
+//     </div
+//     `
+// }
+
+function cuisineDropdown() {
+    document.getElementById("dropList").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        const dropdowns = document.getElementsByClassName("dropdown-list");
+        //const i;
+        for (i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+// let modalBtn = document.querySelector('.modal-btn')
+// let modalBg = document.querySelector('.modal-bg')
+// let modalClose = document.querySelector('.modal-close')
+
+// modalBtn.addEventListener('click',function(){
+//     modalBg.classList.add('bg-active');
+// })
+
+// modalClose.addEventListener('click', function(){
+//     modalBg.classList.remove('bg-active');
+// })
+
+// Filter recipes on homescreen
+
+
+// Filter recipes on homescreen
+

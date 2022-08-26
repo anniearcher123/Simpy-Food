@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Karla&display=swap" rel="stylesheet">
 <script src="main.js"></script>
 <script src="https://kit.fontawesome.com/75ab6bd25d.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 </head>
 <body>
     <header>
@@ -25,6 +26,17 @@
                 </ul>
             </nav>
         </div>
+        <!-- Cuisine Dropdown -->
+        <div class="dropdown">
+            <button onclick="cuisineDropdown()" class="dropbtn">Cuisines</button>
+            <div id="dropList" class="dropdown-list">
+                <a href="#cuisine1">Cuisine 1</a>
+                <a href="#cuisine2">Cuisine 2</a>
+                <a href="#cuisine3">Cuisine 3</a>
+                <a href="#cuisine4">Cuisine 4</a>
+            </div>
+        </div>
+        <!-- Cuisine Dropdown -->
     </header>
 
 <div class="search-container">
@@ -44,20 +56,38 @@
           <button class="btn" onclick="filterObjects('vegetarian')">Vegetarian</button>
     </div> -->
 <!-- Filter Buttons for Recipes -->
+    <!-- <button id="modal-btn">Modal</button> -->
+<!-- Modal -->
+    <!-- <div class="modal">
+        <div class="modal-bg">
+            <h2>Testing</h2>
+            <label for="name">Name: </label>
+            <input type="text" name="name">
+            <label for="email">Email: </label>
+            <input type="email" name="email">
+            <button>Subscribe</button>
+            <span class="modal-close">X</span>
+        </div>
+</div> -->
+<!-- Modal -->
 
+
+<!-- <div class="search-results"> -->
+    <!-- <h3>Search Results</h3> -->
+
+<!-- </div> -->
 </div>
 
-<div class="search-results">
-    <div id="search-result">
+<div class="search-results" >
 
-        
+    <div id="search-result">
     </div>
 
 </div>
-
 <div class="card-container">
 
 </div>
+
 
 </body>
 <footer></footer>
