@@ -21,7 +21,7 @@ window.onload=function() {
 //Take input from search and look up recipe by ingredient
 function resultList(){
     let result = document.getElementById('ingredient-search').value.trim()
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe`)
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=8632ca482e724046a9901233a48357de`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -190,8 +190,8 @@ window.onclick = function(event) {
 //     modalBg.classList.remove('bg-active');
 // })
 
-// Filter recipes on homescreen
+//Filter recipes on homescreen
 
 
-// Filter recipes on homescreen
+//Filter recipes on homescreen
 
