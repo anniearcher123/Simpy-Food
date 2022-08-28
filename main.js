@@ -24,7 +24,7 @@ function resultList(){
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe`)
     .then(response => response.json())
     .then(data => {
-        //  console.log(data)
+        console.log(data)
          return ingredientList(data)
      })
      .then(async ingredientsArray => {
@@ -76,7 +76,14 @@ function ingredientList(ingredient){
 async function nutrition(ingredient){
     const response = await fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`);
     const data = await response.json();
-    return data.calories;
+    console.log(data)
+    //return data.calories
+    for(let nutrient in data.totalNutrients) {
+        return `${data.totalNutrients[nutrient].label} - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}`
+    }
+    
+
+    ;
 }
 
 
