@@ -331,6 +331,18 @@ background: #f1f1f1;
         display: flex;
         justify-content: center;
         align-items: center;
+.search-container {
+    grid-area: search-container;
+    background-image: url(images/search-bar-image2.jpg);
+    height: 60vh;
+    width: 100%;
+    object-fit: none;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input {
