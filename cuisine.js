@@ -79,15 +79,15 @@ async function nutrition(ingredient){
         `
     }
 
-    function showIngredients(button){
-        let recipeId = $(button).data("recipeid");
-        cuisineIngredients(recipeId);
-    }
+function showIngredients(button){
+    let recipeId = $(button).data("recipeid");
+    cuisineIngredients(recipeId);
+}
     
-    async function hideIngredients(button){
-        let recipeId = $(button).data("recipeid");
-        $(`#cuisineIngredients_${recipeId}`).hide();
-    }
+async function hideIngredients(button){
+    let recipeId = $(button).data("recipeid");
+    $(`#cuisineIngredients_${recipeId}`).hide();
+}
 
 
 cuisineRecipes()
