@@ -64,7 +64,7 @@ function ingredientList(ingredient){
         <div class="card-body">
             <img src="${food.image}" alt="" class="card-image"/>
             <h2 class="card-title">${food.title}</h2>
-            <h3><ul>Ingredients:</ul></h3>
+            <h3><u>Ingredients:</u></h3>
             <ul class="ingredients-list">${html}</ul>
         </div>
         <button onclick="show(this)" class="card-button">Nutrition Info</button>
@@ -84,12 +84,10 @@ async function nutrition(ingredient){
     const response = await fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`);
     const data = await response.json();
     console.log(data)
-    //return data.calories
     //loop through total nutrients
     for(let nutrient in data.totalNutrients) {
-        nutrients += `<li><strong>${data.totalNutrients[nutrient].label}</strong> - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}</li>`
-    }
-        
+        nutrients += `<li><strong>${data.totalNutrients[nutrient].label}</strong> - ${data.totalNutrients[nutrient].quantity.toFixed(1)}${data.totalNutrients[nutrient].unit}</li>`
+    } 
         return `
         <h3><u><strong>Nutrition Info:</strong></u></h3>
             <ol class="nutrition-info">
@@ -100,14 +98,10 @@ async function nutrition(ingredient){
 
 async function show(button){
     $(button).siblings(".card-body").find(".nutrition").show()
-    //this.parentElement.style.display = 'block';
-    // $(".nutrition").show()
 }
 
 async function hide(button){
     $(button).siblings(".card-body").find(".nutrition").hide()
-    //this.parentElement.style.display = 'block';
-    //$(".nutrition").hide()
 }
 
 // Filter recipes on homescreen
