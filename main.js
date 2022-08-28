@@ -135,42 +135,42 @@ function ingredientList(ingredient){
     `
 }
 
-const dropdowns = document.querySelectorAll('.dropdown');
+// const dropdowns = document.querySelectorAll('.dropdown');
 
-dropdowns.forEach(dropdown => {
-    const select = dropdown.querySelector('.select');
-    const caret = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.menu');
-    const options = dropdown.querySelectorAll('.menu li');
-    const selected = dropdown.querySelector('.selected');
+// dropdowns.forEach(dropdown => {
+//     const select = dropdown.querySelector('.select');
+//     const caret = dropdown.querySelector('.caret');
+//     const menu = dropdown.querySelector('.menu');
+//     const options = dropdown.querySelectorAll('.menu li');
+//     const selected = dropdown.querySelector('.selected');
 
-    select.addEventListener('click', () => {
-        select.classList.toggle('select-clicked');
-        caret.classList.toggle('caret-rotate');
-        menu.classList.toggle('menu-open');
-    });
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            selected.innerText = option.innerText;
-            select.classList.remove('select-clicked');
-            caret.classList.remove('caret-rotate');
-            menu.classList.remove('menu-open');
-            options.forEach(option => {
-                option.classList.remove('active');
-            });
-            option.classList.add('active');
-        });
-    });
-});
+//     select.addEventListener('click', () => {
+//         select.classList.toggle('select-clicked');
+//         caret.classList.toggle('caret-rotate');
+//         menu.classList.toggle('menu-open');
+//     });
+//     options.forEach(option => {
+//         option.addEventListener('click', () => {
+//             selected.innerText = option.innerText;
+//             select.classList.remove('select-clicked');
+//             caret.classList.remove('caret-rotate');
+//             menu.classList.remove('menu-open');
+//             options.forEach(option => {
+//                 option.classList.remove('active');
+//             });
+//             option.classList.add('active');
+//         });
+//     });
+// });
 
-let modalBtn = document.querySelector('.modal-btn')
-let modalBg = document.querySelector('.modal-bg')
-let modalClose = document.querySelector('.modal-close')
+// let modalBtn = document.querySelector('.modal-btn')
+// let modalBg = document.querySelector('.modal-bg')
+// let modalClose = document.querySelector('.modal-close')
 
-modalBtn.addEventListener('click',function(){
-    modalBg.classList.add('bg-active');
-})
+// modalBtn.addEventListener('click',function(){
+//     modalBg.classList.add('bg-active');
+// })
 
-modalClose.addEventListener('click', function(){
-    modalBg.classList.remove('bg-active');
-})
+// modalClose.addEventListener('click', function(){
+//     modalBg.classList.remove('bg-active');
+// })
