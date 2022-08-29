@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Simply Food</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Group 1">
+<link rel="stylesheet" type="text/css" href="../CSS-Pages/cuisine-pages.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Karla&display=swap" rel="stylesheet">
+<script src="../JS-Pages/cuisine-page1.js"></script>
+<script src="https://kit.fontawesome.com/75ab6bd25d.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="title">Simply Food</h1>
+        <div class="filter-pages"></div>
+        <div class="social-media-links">
+            <nav class="social-media">
+                <ul class="social-media-list">
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-twitter"></i></li>
+                    <li><i class="fa-brands fa-square-facebook"></i></li>
+                </ul>
+            </nav>
+        </div>
+        <style>
+            .dropdown {
+                display: block;
+                position: relative;
+                z-index: 4;
+            }
+        
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                width: 100%;
+                overflow: auto;
+                box-shadow: 0px 10px 10px 0px rgba(45, 0, 103, 0.58);
+            }
+        
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        
+            .dropdown-content a {
+                display: block;
+                color: #b5c600;
+                padding: 5px;
+                text-decoration: none;
+            }
+        
+            .dropdown-content a:hover {
+                color: #FFFFFF;
+                background-color: #00A4BD;
+            }
+        </style>
+                <!-- Cuisine Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdownbtn">Popular Cuisines</button>
+                    <div class="dropdown-content">
+                        <a href="Project.html">Home</a>
+                        <a href="cuisine-page2.html">French</a>
+                        <a href="cuisine-page3.html">Italian</a>
+                    </div>
+                </div>
+                <!-- Cuisine Dropdown -->
+    </header>
+
+    <div class="top-ten-results">
+        <h1>Top 10 Chinese Recipes</h1>
+    </div>
+
+    <div class="card-container">
+    
+    </div>
+
+    </body>
+    <footer></footer>
+    </html>

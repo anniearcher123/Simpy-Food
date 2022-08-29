@@ -7,7 +7,7 @@
 //Nutrition API ID a9218d64
 //API key cc615f58e7a322c342185472560c8883
 //URL example https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=1%20cup%20of%20milk%2C%201%20tsp%20of%20vanilla%2C%204%20eggs
-
+//last try
 const recipes = document.getElementById('card-container')
 //start()
 
@@ -21,7 +21,7 @@ window.onload=function() {
 //Take input from search and look up recipe by ingredient
 function resultList(){
     let result = document.getElementById('ingredient-search').value.trim()
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=7be06ed1dc724fc38a11ef37e6e88fbe`)
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=8632ca482e724046a9901233a48357de`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -32,9 +32,9 @@ function resultList(){
             return nutrition(ingredient);
         }))
         .then(calories => {
-            const cardLists = document.querySelectorAll('.ingredients-list');
+            const cardLists = document.querySelectorAll('.card-body');
             cardLists.forEach((card, i) => {
-                const calText = `<li class="ingredients">${calories[i]}</li>`
+                const calText = `<div class="nutrition" id= "nutrition${i}" style="display:none">${calories[i]}</div>`
                 card.innerHTML += calText;
             })
         });
@@ -59,33 +59,50 @@ function ingredientList(ingredient){
         })
     
         ingredients.push(ingredientsInCard);
-        return `<div class="card">
+        return `
+    <div class="card">
         <div class="card-body">
             <img src="${food.image}" alt="" class="card-image"/>
             <h2 class="card-title">${food.title}</h2>
-            <ol class="ingredients-list">${html}</ol>
+            <h3><u>Ingredients:</u></h3>
+            <ul class="ingredients-list">${html}</ul>
         </div>
-        <button class="card-button">View recipe</button>
+        <button onclick="show(this)" class="card-button">Nutrition Info</button>
+        <button onclick="hide(this)" class="card-button">Hide</button>
     </div>`
     
     }).join('')}
     `
     return ingredients;
+    console.log(ingredients)
 }
 
 async function nutrition(ingredient){
+    let nutrients = ""
+    let card = []
+    
     const response = await fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`);
     const data = await response.json();
     console.log(data)
-    //return data.calories
+    //loop through total nutrients
     for(let nutrient in data.totalNutrients) {
-        return `${data.totalNutrients[nutrient].label} - ${data.totalNutrients[nutrient].quantity}${data.totalNutrients[nutrient].unit}`
-    }
-    
-
-    ;
+        nutrients += `<li><strong>${data.totalNutrients[nutrient].label}</strong> - ${data.totalNutrients[nutrient].quantity.toFixed(1)}${data.totalNutrients[nutrient].unit}</li>`
+    } 
+        return `
+        <h3><u><strong>Nutrition Info:</strong></u></h3>
+            <ol class="nutrition-info">
+                ${nutrients}
+            </ol>
+        `
 }
 
+async function show(button){
+    $(button).siblings(".card-body").find(".nutrition").show()
+}
+
+async function hide(button){
+    $(button).siblings(".card-body").find(".nutrition").hide()
+}
 
 // Filter recipes on homescreen
 filterObjects("all");
@@ -121,56 +138,16 @@ function removeClass(b, c){
     }
     element.className = arr1.join(" ");
 }
-
 // Filter recipes on homescreen
 
+
 //Function that will use result of search, loop through array and pull out information
-function ingredientList(ingredient){
-    document.getElementById('search-result').innerHTML =`
-    <div>    
-    ${ingredient.map(function(food) {
-            return `<div>${food.title} - ${food.missedIngredients[0].name}</div>`
-        }).join('')}
-    </div
-    `
-}
-
-// const dropdowns = document.querySelectorAll('.dropdown');
-
-// dropdowns.forEach(dropdown => {
-//     const select = dropdown.querySelector('.select');
-//     const caret = dropdown.querySelector('.caret');
-//     const menu = dropdown.querySelector('.menu');
-//     const options = dropdown.querySelectorAll('.menu li');
-//     const selected = dropdown.querySelector('.selected');
-
-//     select.addEventListener('click', () => {
-//         select.classList.toggle('select-clicked');
-//         caret.classList.toggle('caret-rotate');
-//         menu.classList.toggle('menu-open');
-//     });
-//     options.forEach(option => {
-//         option.addEventListener('click', () => {
-//             selected.innerText = option.innerText;
-//             select.classList.remove('select-clicked');
-//             caret.classList.remove('caret-rotate');
-//             menu.classList.remove('menu-open');
-//             options.forEach(option => {
-//                 option.classList.remove('active');
-//             });
-//             option.classList.add('active');
-//         });
-//     });
-// });
-
-// let modalBtn = document.querySelector('.modal-btn')
-// let modalBg = document.querySelector('.modal-bg')
-// let modalClose = document.querySelector('.modal-close')
-
-// modalBtn.addEventListener('click',function(){
-//     modalBg.classList.add('bg-active');
-// })
-
-// modalClose.addEventListener('click', function(){
-//     modalBg.classList.remove('bg-active');
-// })
+// function ingredientList(ingredient){
+//     document.getElementById('search-result').innerHTML =`
+//     <div>    
+//     ${ingredient.map(function(food) {
+//             return `<div>${food.title} - ${food.missedIngredients[0].name}</div>`
+//         }).join('')}
+//     </div
+//     `
+// }
