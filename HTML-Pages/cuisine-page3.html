@@ -26,6 +26,48 @@
                 </ul>
             </nav>
         </div>
+        <style>
+            .dropdown {
+                display: block;
+                position: relative;
+                z-index: 4;
+            }
+        
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                width: 100%;
+                overflow: auto;
+                box-shadow: 0px 10px 10px 0px rgba(45, 0, 103, 0.58);
+            }
+        
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        
+            .dropdown-content a {
+                display: block;
+                color: #b5c600;
+                padding: 5px;
+                text-decoration: none;
+            }
+        
+            .dropdown-content a:hover {
+                color: #FFFFFF;
+                background-color: #00A4BD;
+            }
+        </style>
+                <!-- Cuisine Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdownbtn">Popular Cuisines</button>
+                    <div class="dropdown-content">
+                        <a href="Project.html">Home</a>
+                        <a href="cuisine-page1.html">Chinese</a>
+                        <a href="cuisine-page2.html">French</a>
+                        <a href="cuisine-page4.html">Indian</a>
+                    </div>
+                </div>
+                <!-- Cuisine Dropdown -->
     </header>
 
     <div class="top-ten-results">

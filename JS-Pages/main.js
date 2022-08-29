@@ -142,9 +142,6 @@ function removeClass(b, c){
     }
     element.className = arr1.join(" ");
 }
-
-
-
 // Filter recipes on homescreen
 
 function cuisineDropdown() {

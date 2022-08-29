@@ -12,6 +12,37 @@
 <script src="../JS-Pages/main.js"></script>
 <script src="https://kit.fontawesome.com/75ab6bd25d.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<style>
+    .dropdown {
+        display: block;
+        position: relative;
+        z-index: 4;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        width: 100%;
+        overflow: auto;
+        box-shadow: 0px 10px 10px 0px rgba(45, 0, 103, 0.58);
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        display: block;
+        color: #b5c600;
+        padding: 5px;
+        text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+        color: #FFFFFF;
+        background-color: #00A4BD;
+    }
+</style>
 </head>
 <body>
     <header>
@@ -27,15 +58,15 @@
             </nav>
         </div>
         <!-- Cuisine Dropdown -->
-        <!-- <div class="dropdown">
-            <button onclick="cuisineDropdown()" class="dropbtn">Cuisines</button>
-            <div id="dropList" class="dropdown-list">
-                <a href="#cuisine1">Cuisine 1</a>
-                <a href="#cuisine2">Cuisine 2</a>
-                <a href="#cuisine3">Cuisine 3</a>
-                <a href="#cuisine4">Cuisine 4</a>
+        <div class="dropdown">
+            <button class="dropdownbtn">Popular Cuisines</button>
+            <div class="dropdown-content">
+                <a href="cuisine-page1.html">Chinese</a>
+                <a href="cuisine-page2.html">French</a>
+                <a href="cuisine-page3.html">Italian</a>
+                <a href="cuisine-page4.html">Indian</a>
             </div>
-        </div> -->
+        </div>
         <!-- Cuisine Dropdown -->
     </header>
 
@@ -44,38 +75,6 @@
         <input type="text" id="ingredient-search">
         <button type="submit" id="search-btn"><i class="fa-solid fa-magnifying-glass" id="search-icon"></i></button>
     </div>
-
-<!-- Filter Buttons for Recipes -->
-    <!-- <div id="buttons">
-          <button class="btn" onclick="filterObjects('all')">Show All</button>
-          <button class="btn" onclick="filterObjects('beef')">Beef</button>
-          <button class="btn" onclick="filterObjects('pork')">Pork</button>
-          <button class="btn" onclick="filterObjects('chicken')">Chicken</button>
-          <button class="btn" onclick="filterObjects('lamb')">Lamb</button>
-          <button class="btn" onclick="filterObjects('seafood')">Seafood</button>
-          <button class="btn" onclick="filterObjects('vegetarian')">Vegetarian</button>
-    </div> -->
-<!-- Filter Buttons for Recipes -->
-    <!-- <button id="modal-btn">Modal</button> -->
-<!-- Modal -->
-    <!-- <div class="modal">
-        <div class="modal-bg">
-            <h2>Testing</h2>
-            <label for="name">Name: </label>
-            <input type="text" name="name">
-            <label for="email">Email: </label>
-            <input type="email" name="email">
-            <button>Subscribe</button>
-            <span class="modal-close">X</span>
-        </div>
-</div> -->
-<!-- Modal -->
-
-
-<!-- <div class="search-results"> -->
-    <!-- <h3>Search Results</h3> -->
-
-<!-- </div> -->
 </div>
 
 <div class="search-results" >
