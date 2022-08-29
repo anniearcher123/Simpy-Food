@@ -195,117 +195,19 @@ footer {
         "card-container"
         "footer";
     }
-
-/* .modal-bg{
-    position: fixed;
+  
+.search-container {
+    grid-area: search-container;
+    background-image: url(images/search-bar-image2.jpg);
+    height: 60vh;
     width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    object-fit: none;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s opacity 0,5s;
-} */
-
-/* bg-active{
-    visibility: visible;
-    opacity: 1;
-} */
-/* 
-.modal{
-    position: relative;
-    background-color: white;
-    width: 30;
-    height: 30;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-}
-
-.modal button{
-    padding: 10px 30px;
-    color: white;
-    border: none;
-    background-color: #2980b9;
-    cursor: pointer;
-}
-
-.modal-close{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-weight: bold;
-    cursor: pointer;
-} */
-
-.dropbtn {
-    background-color: #29b957;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #29b957;
-  }
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropdown-list {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.106);
-    z-index: 1;
-    overflow:auto;
-    width: 100%
-  }
-
-  .dropdown-list:after {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.106);
-    z-index: 1;
-    overflow:auto;
-    width: 100%
-  }
-
-  .dropdown-list a {
-    color: rgba(0, 0, 0, 0.547);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .dropdown-list a:hover {background-color: #ddd}
-
-  .show {display:block;}
-   */
-    .search-container {
-        grid-area: search-container;
-        background-image: url(images/search-bar-image2.jpg);
-        height: 60vh;
-        width: 100%;
-        object-fit: none;
-        background-position: center center;
-        background-size: cover;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 }
 
 input {
@@ -326,11 +228,11 @@ input {
     color: #2e4711;
     font-size: 2rem;
     cursor: pointer;
-    top: 15px;
-    right: 20px;
+    top: 253px;
+    right: 50px;
 }
 
 .ingredient-search {
     position: relative;
 }
-}
+

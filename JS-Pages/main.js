@@ -138,9 +138,6 @@ function removeClass(b, c){
     }
     element.className = arr1.join(" ");
 }
-
-
-
 // Filter recipes on homescreen
 
 
@@ -154,38 +151,3 @@ function removeClass(b, c){
 //     </div
 //     `
 // }
-
-function cuisineDropdown() {
-    document.getElementById("dropList").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        const dropdowns = document.getElementsByClassName("dropdown-list");
-        //const i;
-        for (i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-// let modalBtn = document.querySelector('.modal-btn')
-// let modalBg = document.querySelector('.modal-bg')
-// let modalClose = document.querySelector('.modal-close')
-
-// modalBtn.addEventListener('click',function(){
-//     modalBg.classList.add('bg-active');
-// })
-
-// modalClose.addEventListener('click', function(){
-//     modalBg.classList.remove('bg-active');
-// })
-
-//Filter recipes on homescreen
-
-
-//Filter recipes on homescreen
-
