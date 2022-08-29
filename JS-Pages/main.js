@@ -50,11 +50,11 @@ function ingredientList(ingredient){
         let html = ""
         let ingredientsInCard = [];
         food.missedIngredients.forEach(function(missed){
-            html += `<li class="ingredients">${missed.original}</li>`
+            html += `<li class="ingredient">${missed.original}</li>`
             ingredientsInCard.push(missed.original);
         })
         food.usedIngredients.forEach(function(used){
-            html += `<li class="ingredients">${used.original}</li>`
+            html += `<li class="ingredient">${used.original}</li>`
             ingredientsInCard.push(used.original);
         })
     
@@ -64,10 +64,12 @@ function ingredientList(ingredient){
         <div class="card-body">
             <img src="${food.image}" alt="" class="card-image"/>
             <h2 class="card-title">${food.title}</h2>
-            <h3><u>Ingredients:</u></h3>
-            <ul class="ingredients-list">${html}</ul>
+            <div class ="ingredients" style="display:none">
+                <h3><u>Ingredients:</u></h3>
+                <ul class="ingredients-list">${html}</ul>
+            </div>
         </div>
-        <button onclick="show(this)" class="card-button">Nutrition Info</button>
+        <button onclick="show(this)" class="card-button">Recipe Information</button>
         <button onclick="hide(this)" class="card-button">Hide</button>
     </div>`
     
@@ -80,7 +82,7 @@ function ingredientList(ingredient){
 async function nutrition(ingredient){
     let nutrients = ""
     let card = []
-    
+    console.log(ingredient)
     const response = await fetch(`https://api.edamam.com/api/nutrition-data?app_id=a9218d64&app_key=cc615f58e7a322c342185472560c8883&nutrition-type=cooking&ingr=${ingredient}`);
     const data = await response.json();
     console.log(data)
@@ -98,10 +100,12 @@ async function nutrition(ingredient){
 
 async function show(button){
     $(button).siblings(".card-body").find(".nutrition").show()
+    $(button).siblings(".card-body").find(".ingredients").show()
 }
 
 async function hide(button){
     $(button).siblings(".card-body").find(".nutrition").hide()
+    $(button).siblings(".card-body").find(".ingredients").hide()
 }
 
 // Filter recipes on homescreen
@@ -142,18 +146,6 @@ function removeClass(b, c){
 
 
 // Filter recipes on homescreen
-
-
-//Function that will use result of search, loop through array and pull out information
-// function ingredientList(ingredient){
-//     document.getElementById('search-result').innerHTML =`
-//     <div>    
-//     ${ingredient.map(function(food) {
-//             return `<div>${food.title} - ${food.missedIngredients[0].name}</div>`
-//         }).join('')}
-//     </div
-//     `
-// }
 
 function cuisineDropdown() {
     document.getElementById("dropList").classList.toggle("show");
