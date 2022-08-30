@@ -28,15 +28,19 @@ header {
 .social-media-list {
     display: flex;
     justify-content: center;
+    list-style: none;
 }
 
-.social-media-list li {
+.social-media-list a {
     display: inline;
     color: #a01734;
     padding: 20px;
+    padding-bottom: 5px;
 }
 
-
+.social-media-list a:hover {
+    color: #d7d9cf;
+}
 
 body {
     background-color: #212529;
@@ -77,6 +81,7 @@ input {
     outline: solid 1px #2e4711;
     background-color: rgba(255, 255, 255, 0.7);
     color: black;
+    align-items: center;
 }
 
 
@@ -204,61 +209,9 @@ footer {
     }
 
 
-
-.dropbtn {
-    background-color: #29b957;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #29b957;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-list {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.106);
-    z-index: 1;
-    overflow:auto;
-    width: 100%
-}
-
-.dropdown-list:after {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.106);
-    z-index: 1;
-    overflow:auto;
-    width: 100%
-}
-
-.dropdown-list a {
-    color: rgba(0, 0, 0, 0.547);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-list a:hover {background-color: #ddd}
-
-.show {display:block;}
-   */
     .search-container {
         grid-area: search-container;
-        background-image: url(images/search-bar-image2.jpg);
+        background-image: url(../images/search-bar-image2.jpg);
         height: 60vh;
         width: 100%;
         object-fit: none;
@@ -270,7 +223,7 @@ footer {
         align-items: center;
     }
 
-.search-container {
+/* .search-container {
     grid-area: search-container;
     background-attachment: fixed;
     background-image: url(images/search-bar-image2.jpg);
@@ -283,7 +236,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 input {
     grid-area: search-container;

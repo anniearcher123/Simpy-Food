@@ -29,13 +29,18 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
 }
 
-.social-media-list li {
+.social-media-list a {
     display: inline;
     color: #a01734;
     padding: 20px;
     align-items: center;
+}
+
+.social-media-list a:hover {
+    color: #d7d9cf;
 }
 
 body {
