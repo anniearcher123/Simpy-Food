@@ -15,7 +15,7 @@ const recipes = document.getElementById('card-container')
 //Select button
 window.onload=function() {
 
-    const searchButton = document.getElementById('search-btn');
+    const searchButton = document.getElementById('search-icon');
     searchButton.addEventListener("click", resultList);
 }
 //Take input from search and look up recipe by ingredient

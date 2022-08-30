@@ -79,12 +79,11 @@ input {
 
 
 #search-icon {
-    position: absolute;
+    position: relative;
     color: #2e4711;
     font-size: 1.5rem;
     cursor: pointer;
-    top: 238px;
-    right: 485px;
+    right: 35px;
 }
 
 #search-button {
@@ -198,6 +197,7 @@ footer {
   
 .search-container {
     grid-area: search-container;
+    background-attachment: fixed;
     background-image: url(images/search-bar-image2.jpg);
     height: 60vh;
     width: 100%;
@@ -221,18 +221,18 @@ input {
     outline: solid 1px #2e4711;
     background-color: rgba(255, 255, 255, 0.7);
     color: black;
+    
 }
 
 #search-icon {
-    position: absolute;
+    position: relative;
     color: #2e4711;
     font-size: 2rem;
     cursor: pointer;
-    top: 253px;
-    right: 50px;
+    right: 40px;
 }
 
 .ingredient-search {
     position: relative;
 }
-
+}
