@@ -2,6 +2,7 @@ function cuisineRecipes() {
     let recipeIds = []
     let result = document.getElementsByClassName('card-container')
     fetch(`https://api.spoonacular.com/recipes/complexSearch?cuisine=chinese&apiKey=8fc5e4f09c3044ca947bc0fa0f15b01b`)
+
     .then(response => response.json())
     .then(cuisine => {
         // console.log(cuisine)
@@ -29,6 +30,7 @@ function cuisineIngredients (cuisineId) {
     if($ingredientList.length === 0)
     {
         fetch(`https://api.spoonacular.com/recipes/${cuisineId}/information?includeNutrition=false&apiKey=8fc5e4f09c3044ca947bc0fa0f15b01b`)
+
         .then(response => response.json())
         .then(data => {
             let html = "<h3><u>Ingredients:</u></h3>"

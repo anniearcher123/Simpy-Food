@@ -28,12 +28,18 @@ header {
 .social-media-list {
     display: flex;
     justify-content: center;
+    list-style: none;
 }
 
-.social-media-list li {
+.social-media-list a {
     display: inline;
     color: #a01734;
     padding: 20px;
+    padding-bottom: 5px;
+}
+
+.social-media-list a:hover {
+    color: #d7d9cf;
 }
 
 body {
@@ -76,6 +82,7 @@ input {
     outline: solid 1px #2e4711;
     background-color: rgba(255, 255, 255, 0.7);
     color: black;
+    align-items: center;
 }
 
 
@@ -95,6 +102,10 @@ input {
     cursor: pointer;
     top: 238px;
     right: 480px;
+}
+
+#search-icon:hover {
+    color: green;
 }
 
 
@@ -146,10 +157,12 @@ ol {
     list-style:circle;
     padding-left: 5px;
 }
+
 ul {
     list-style: circle;
     padding-left: 5px;
 }
+
 h3{
     text-align: center;
 }
@@ -195,8 +208,23 @@ footer {
         "card-container"
         "footer";
     }
-  
-.search-container {
+
+
+    .search-container {
+        grid-area: search-container;
+        background-image: url(../images/search-bar-image2.jpg);
+        height: 60vh;
+        width: 100%;
+        object-fit: none;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+/* .search-container {
     grid-area: search-container;
     background-attachment: fixed;
     background-image: url(../images/search-bar-image2.jpg);
@@ -209,7 +237,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 input {
     grid-area: search-container;
