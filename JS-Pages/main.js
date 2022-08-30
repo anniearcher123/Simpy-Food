@@ -21,7 +21,7 @@ window.onload=function() {
 //Take input from search and look up recipe by ingredient
 function resultList(){
     let result = document.getElementById('ingredient-search').value.trim()
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=8632ca482e724046a9901233a48357de`)
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${result}&apiKey=8fc5e4f09c3044ca947bc0fa0f15b01b`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
