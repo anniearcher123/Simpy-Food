@@ -99,7 +99,7 @@ body {
     color: #3b0002;
     padding: 20px;
     height:fit-content;
-    min-height: 700px;
+    min-height: 550px;
 }
 
 img {
@@ -162,9 +162,9 @@ footer {
     grid-area: footer;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 350px) {
 body {
-    width: 100vw;
+    width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 0.4fr 2.2fr 1.2fr 1fr;
     grid-template-areas:
@@ -173,4 +173,5 @@ body {
     "card-container"
     "footer";
 }
+
 }
