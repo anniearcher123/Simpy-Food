@@ -29,6 +29,7 @@
             .dropdown {
                 display: block;
                 position: relative;
+                justify-self: center;
                 z-index: 4;
             }
         
@@ -37,7 +38,21 @@
                 position: absolute;
                 width: 100%;
                 overflow: auto;
+                background-color: #212529;
                 box-shadow: 0px 10px 10px 0px rgba(45, 0, 103, 0.58);
+            }
+        
+            .dropdownbtn {
+                background-color: #212529;
+                border: none;
+                color: greenyellow;
+                padding: 10px 3px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
             }
         
             .dropdown:hover .dropdown-content {
@@ -46,7 +61,8 @@
         
             .dropdown-content a {
                 display: block;
-                color: #b5c600;
+                color:greenyellow;
+                text-align: center;
                 padding: 5px;
                 text-decoration: none;
             }
@@ -58,7 +74,7 @@
         </style>
                 <!-- Cuisine Dropdown -->
                 <div class="dropdown">
-                    <button class="dropdownbtn">Popular Cuisines</button>
+                    <button class="dropdownbtn"><h2>Popular Cuisines</h2></button>
                     <div class="dropdown-content">
                         <a href="Project.html">Home</a>
                         <a href="cuisine-page1.html">Chinese</a>
