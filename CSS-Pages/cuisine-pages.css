@@ -154,7 +154,7 @@ body {
     grid-template-rows: 0.4fr 2.2fr 1.2fr 1fr;
     grid-template-areas:
     "header"
-    "s"
+    "top-ten"
     "card-container"
     "footer";
 }
