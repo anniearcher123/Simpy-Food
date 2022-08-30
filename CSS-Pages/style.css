@@ -49,6 +49,7 @@ body {
     "footer footer footer";
 }
 
+
 .search-container {
     grid-area: search-container;
     background-image: url(../images/search-bar-image2.jpg);
@@ -142,8 +143,8 @@ img {
 
 
 ol {
-    list-style:none;
-    padding-left: 0;
+    list-style:circle;
+    padding-left: 5px;
 }
 ul {
     list-style: circle;
@@ -198,7 +199,7 @@ footer {
 .search-container {
     grid-area: search-container;
     background-attachment: fixed;
-    background-image: url(images/search-bar-image2.jpg);
+    background-image: url(../images/search-bar-image2.jpg);
     height: 60vh;
     width: 100%;
     object-fit: none;
@@ -221,6 +222,7 @@ input {
     outline: solid 1px #2e4711;
     background-color: rgba(255, 255, 255, 0.7);
     color: black;
+    
     
 }
 
