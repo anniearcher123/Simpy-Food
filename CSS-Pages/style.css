@@ -81,12 +81,11 @@ input {
 
 
 #search-icon {
-    position: absolute;
+    position: relative;
     color: #2e4711;
     font-size: 1.5rem;
     cursor: pointer;
-    top: 238px;
-    right: 485px;
+    right: 35px;
 }
 
 #search-button {
@@ -126,7 +125,7 @@ input {
     color: #3b0002;
     padding: 20px;
     height:fit-content;
-    min-height: 650px;
+    min-height: 550px;
 }
 
 img {
@@ -205,6 +204,7 @@ footer {
     }
 
 
+
 .dropbtn {
     background-color: #29b957;
     color: white;
@@ -212,18 +212,18 @@ footer {
     font-size: 16px;
     border: none;
     cursor: pointer;
-  }
+}
 
-  .dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover, .dropbtn:focus {
     background-color: #29b957;
-  }
+}
 
-  .dropdown {
+.dropdown {
     position: relative;
     display: inline-block;
-  }
+}
 
-  .dropdown-list {
+.dropdown-list {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
@@ -232,9 +232,9 @@ footer {
     z-index: 1;
     overflow:auto;
     width: 100%
-  }
+}
 
-  .dropdown-list:after {
+.dropdown-list:after {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
@@ -243,18 +243,18 @@ footer {
     z-index: 1;
     overflow:auto;
     width: 100%
-  }
+}
 
-  .dropdown-list a {
+.dropdown-list a {
     color: rgba(0, 0, 0, 0.547);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
+}
 
-  .dropdown-list a:hover {background-color: #ddd}
+.dropdown-list a:hover {background-color: #ddd}
 
-  .show {display:block;}
+.show {display:block;}
    */
     .search-container {
         grid-area: search-container;
@@ -268,6 +268,21 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+.search-container {
+    grid-area: search-container;
+    background-attachment: fixed;
+    background-image: url(images/search-bar-image2.jpg);
+    height: 60vh;
+    width: 100%;
+    object-fit: none;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input {
@@ -281,15 +296,15 @@ input {
     outline: solid 1px #2e4711;
     background-color: rgba(255, 255, 255, 0.7);
     color: black;
+    
 }
 
 #search-icon {
-    position: absolute;
+    position: relative;
     color: #2e4711;
     font-size: 2rem;
     cursor: pointer;
-    top: 15px;
-    right: 20px;
+    right: 40px;
 }
 
 .ingredient-search {

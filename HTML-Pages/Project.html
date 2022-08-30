@@ -12,6 +12,53 @@
 <script src="../JS-Pages/main.js"></script>
 <script src="https://kit.fontawesome.com/75ab6bd25d.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<style>
+    .dropdown {
+        display: block;
+        position: relative;
+        justify-self: center;
+        z-index: 4;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        width: 100%;
+        overflow: auto;
+        background-color: #212529;
+        box-shadow: 0px 10px 10px 0px rgba(45, 0, 103, 0.58);
+    }
+
+    .dropdownbtn {
+        background-color: #212529;
+        border: none;
+        color: greenyellow;
+        padding: 10px 3px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        display: block;
+        color:greenyellow;
+        text-align: center;
+        padding: 5px;
+        text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+        color: #FFFFFF;
+        background-color: #00A4BD;
+    }
+</style>
 </head>
 <body>
     <header>
@@ -28,13 +75,23 @@
         </div>
         <!-- Cuisine Dropdown -->
         
+        <div class="dropdown">
+            <button class="dropdownbtn"><h2>Popular Cuisines</h2></button>
+            <div class="dropdown-content">
+                <a href="cuisine-page1.html">Chinese</a>
+                <a href="cuisine-page2.html">French</a>
+                <a href="cuisine-page3.html">Italian</a>
+                <a href="cuisine-page4.html">Indian</a>
+            </div>
+        </div>
+
         <!-- Cuisine Dropdown -->
     </header>
 
 <div class="search-container">
     <div class="ingredient-search">
         <input type="text" id="ingredient-search">
-        <button type="submit" id="search-btn"><i class="fa-solid fa-magnifying-glass" id="search-icon"></i></button>
+        <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
     </div>
 
 </div>
