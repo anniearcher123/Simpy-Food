@@ -8,12 +8,19 @@
 * [Setup](#setup)
 
 ## General Info
-This website is for someone who loves food and wants to know the nutritional info for their favorite recipes. This website is the first of many projects for the Digital Crafts Full-Stack Web Development course and features two API calls, one to gather the recipes and another to add the nutritional info based on the ingredient list. 
+"Simply Food" is a web application created by a team using HTML/CSS, Bootstrap, and Javascript. The application is designed to help users find recipes quickly and easily, based on the ingredients they have on hand or want to use.
+
+The application includes a comprehensive search feature that enables users to find recipes by searching for specific ingredients. When an ingredient is searched, the application renders a list of common recipes that include that ingredient, along with an ingredient list and nutritional information.
+
+In addition to the search feature, "Simply Food" offers different pages with recipes from popular cuisines. This feature enables users to explore and discover new recipes from different cultures and regions around the world.
+
+"Simply Food" provides a simple and user-friendly platform for users to find and discover new recipes, as well as utilize ingredients they have on hand.
 
 
 ## Tech Stack
 Project is created with:
 * HTML/CSS
+* Javascript
 
 
 ## Minimum Viable Product
